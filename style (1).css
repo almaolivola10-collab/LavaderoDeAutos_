@@ -1,0 +1,1142 @@
+/* =====================================================
+   ALMA DETAILING
+===================================================== */
+
+/* =========================
+   VARIABLES (tu paleta original)
+========================= */
+:root {
+    --negro: #454568;
+    --negro-claro: #121a1f;
+    --violeta: #8c93f5;
+    --violeta-oscuro: #7358cc;
+    --blanco: #ffffff;
+    --gris-claro: #f3f5f6;
+    --gris: #000000;
+    --gris-oscuro: #83779e;
+    --borde: #dfe4e7;
+    --ancho: 1200px;
+    --sombra: 0 15px 40px rgba(0, 0, 0, 0.10);
+    --transicion: all 0.3s ease;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--gris-claro);
+    color: var(--negro);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.contenedor {
+    width: min(90%, var(--ancho));
+    margin: 0 auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 17, 21, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    width: min(90%, var(--ancho));
+    min-height: 80px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* LOGO */
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.menu a {
+    color: #e8e5eb;
+    font-size: 16px;
+    font-weight: 600;
+    transition: var(--transicion);
+}
+
+.menu a:hover {
+    color: var(--violeta);
+    transform: translateY(-2px);
+}
+
+.menu-boton {
+    display: none;
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    color: #e8e5eb;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+/* BOTON NAV */
+.boton-nav {
+    padding: 12px 22px;
+    background: var(--violeta);
+    color: var(--negro);
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: var(--transicion);
+}
+
+.boton-nav:hover {
+    background: var(--blanco);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(245, 246, 255, 0.2);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    min-height: 700px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(5, 10, 13, 0.92),
+        rgba(5, 10, 13, 0.62),
+        rgba(5, 10, 13, 0.25)
+    );
+}
+
+.foto-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 2;
+    width: min(90%, var(--ancho));
+    margin: auto;
+    color: var(--blanco);
+}
+
+.subtitulo {
+    margin-bottom: 15px;
+    color: var(--violeta);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: var(--violeta);
+}
+
+.descripcion {
+    margin-bottom: 35px;
+    color: #d7dcde;
+    font-size: 20px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+.boton-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 16px 27px;
+    border: none;
+    border-radius: 50px;
+    background: var(--violeta);
+    color: var(--negro);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: var(--transicion);
+}
+
+.boton-principal:hover {
+    transform: translateY(-4px);
+    background: var(--blanco);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.boton-principal:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+.boton-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    border: 1px solid var(--borde);
+    border-radius: 30px;
+    background: transparent;
+    color: var(--negro);
+    font-size: 11px;
+    font-weight: bold;
+    transition: var(--transicion);
+}
+
+.boton-secundario:hover {
+    border-color: var(--violeta);
+    background: var(--violeta);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   INTRODUCCIÓN
+========================= */
+.introduccion {
+    padding: 100px 0;
+    background: var(--blanco);
+}
+
+.introduccion .contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.introduccion h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.introduccion h2 span {
+    color: var(--violeta-oscuro);
+}
+
+.introduccion .contenedor > p {
+    color: var(--gris);
+    font-size: 18px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+.seccion {
+    padding: 100px 0;
+}
+
+.titulo-seccion {
+    margin-bottom: 50px;
+}
+
+.titulo-seccion.centrado {
+    text-align: center;
+}
+
+.titulo-seccion h2 {
+    margin-bottom: 10px;
+    font-size: clamp(35px, 5vw, 55px);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.titulo-seccion > p:last-child {
+    color: var(--gris);
+}
+
+/* =========================
+   AVISOS (éxito / error)
+========================= */
+.aviso {
+    margin-bottom: 30px;
+    padding: 16px 20px;
+    border: 1px solid;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.aviso.exito {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: #22c55e;
+    color: #166534;
+}
+
+.aviso.error {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #991b1b;
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+.reserva,
+.horarios {
+    background: var(--gris-claro);
+}
+
+.vehiculo {
+    background: var(--blanco);
+}
+
+form {
+    width: 100%;
+}
+
+.paso {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 30px;
+    padding: 45px;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+
+.vehiculo .paso {
+    background: var(--gris-claro);
+}
+
+.numero-paso {
+    color: var(--violeta-oscuro);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.contenido-paso h3 {
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+.formulario-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--gris-oscuro);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+label small {
+    font-weight: normal;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    outline: none;
+    background: #fafbfb;
+    color: var(--negro);
+    font-size: 15px;
+    transition: var(--transicion);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--violeta-oscuro);
+    background: var(--blanco);
+    box-shadow: 0 0 0 3px rgba(115, 88, 204, 0.18);
+}
+
+/* =========================
+   SERVICIOS
+========================= */
+.servicios {
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+.servicios .titulo-seccion > p:last-child {
+    color: #c9cde0;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+/* TARJETA */
+.tarjeta-servicio {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--negro-claro);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 17px;
+    transition: var(--transicion);
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-10px);
+    border-color: var(--violeta);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-servicio.destacado {
+    border-color: rgba(140, 147, 245, 0.55);
+}
+
+.tarjeta-servicio.elegido {
+    border-color: var(--violeta);
+    box-shadow: 0 0 0 2px var(--violeta);
+}
+
+/* IMÁGENES DE SERVICIO */
+.imagen-servicio {
+    height: 190px;
+    position: relative;
+    background: linear-gradient(135deg, #26343b, #7e929e);
+}
+
+.imagen-servicio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.insignia {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 10px;
+    background: var(--violeta);
+    color: var(--negro);
+    border-radius: 20px;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* CONTENIDO */
+.contenido-servicio {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 25px;
+}
+
+.contenido-servicio h3 {
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.contenido-servicio p {
+    min-height: 70px;
+    margin-bottom: 15px;
+    color: #9ba5a9;
+    font-size: 13px;
+}
+
+.contenido-servicio .precio-servicio {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--violeta);
+    font-size: 20px;
+}
+
+.botones-servicio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.tarjeta-servicio .boton-secundario {
+    color: var(--blanco);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tarjeta-servicio .boton-secundario:hover {
+    color: var(--negro);
+    border-color: var(--violeta);
+}
+
+.boton-carrito {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 30px;
+    background: var(--violeta-oscuro);
+    color: var(--blanco);
+    font-size: 12px;
+    font-weight: bold;
+    transition: var(--transicion);
+}
+
+.boton-carrito:hover {
+    background: var(--blanco);
+    color: var(--negro);
+    transform: translateY(-2px);
+}
+
+.tarjeta-servicio.elegido .boton-carrito {
+    background: var(--violeta);
+    color: var(--negro);
+}
+
+/* =========================
+   CARRITO
+========================= */
+.carrito {
+    margin-top: 60px;
+    padding: 35px;
+    background: var(--negro-claro);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+}
+
+.carrito-titulo {
+    margin-bottom: 30px;
+}
+
+.carrito-titulo h2 {
+    color: var(--blanco);
+    font-size: 32px;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carrito-item span {
+    color: var(--blanco);
+}
+
+.carrito-item button {
+    padding: 7px 12px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--blanco);
+}
+
+.carrito-item button:hover {
+    border-color: var(--violeta);
+    color: var(--violeta);
+}
+
+.carrito-vacio {
+    color: #9ba5a9;
+}
+
+.carrito-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+.carrito-total strong {
+    color: var(--violeta);
+    font-size: 28px;
+}
+
+/* =========================
+   DETALLE SERVICIO (ventana)
+========================= */
+dialog {
+    margin: auto;
+    width: min(960px, 94vw);
+    max-height: 92vh;
+    overflow: auto;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    background: var(--gris-claro);
+    color: var(--negro);
+    box-shadow: var(--sombra);
+}
+
+dialog::backdrop {
+    background: rgba(5, 10, 13, 0.75);
+}
+
+.cerrar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--negro-claro);
+    color: var(--blanco);
+    font-size: 24px;
+    line-height: 1;
+}
+
+.cerrar:hover {
+    background: var(--violeta);
+    color: var(--negro);
+}
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detalle-grid img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #2b393f, #0c1216);
+}
+
+.detalle-contenido {
+    padding: 50px;
+}
+
+.detalle-contenido h2 {
+    margin-bottom: 10px;
+    font-size: 40px;
+    line-height: 1;
+}
+
+.detalle-contenido > p {
+    margin: 20px 0;
+    color: var(--gris);
+}
+
+.precio {
+    display: block;
+    color: var(--violeta-oscuro);
+    font-size: 24px;
+}
+
+.detalle-contenido h3 {
+    margin-top: 25px;
+}
+
+.detalle-contenido ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0 25px;
+    list-style: none;
+}
+
+.detalle-contenido li::before {
+    content: "✓";
+    margin-right: 8px;
+    color: var(--violeta-oscuro);
+    font-weight: bold;
+}
+
+/* =========================
+   HORARIOS
+========================= */
+.formulario-turno {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 40px;
+    background: var(--blanco);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+
+.horarios-disponibles {
+    grid-column: 1 / -1;
+    padding-top: 20px;
+    border-top: 1px solid var(--borde);
+}
+
+.horarios-disponibles > p {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.horas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hora {
+    padding: 10px 18px;
+    border: 1px solid var(--borde);
+    border-radius: 30px;
+    background: var(--blanco);
+    color: var(--gris);
+    font-size: 13px;
+    transition: var(--transicion);
+}
+
+.hora:hover:not(:disabled) {
+    border-color: var(--violeta);
+    background: var(--violeta);
+    color: var(--negro);
+    transform: translateY(-2px);
+}
+
+.hora.elegida {
+    border-color: var(--violeta-oscuro);
+    background: var(--violeta-oscuro);
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.hora:disabled {
+    opacity: 0.4;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.aviso-horarios {
+    color: var(--gris-oscuro);
+    font-size: 14px;
+}
+
+/* =========================
+   CONFIRMACIÓN
+========================= */
+.confirmacion {
+    background: var(--negro);
+}
+
+.tarjeta-confirmacion {
+    padding: 50px;
+    background: var(--negro-claro);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    color: var(--blanco);
+}
+
+.encabezado-confirmacion {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.encabezado-confirmacion h2 {
+    font-size: 42px;
+}
+
+.encabezado-confirmacion > span {
+    padding: 8px 15px;
+    border: 1px solid var(--violeta);
+    border-radius: 30px;
+    color: var(--violeta);
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resumen div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.resumen span {
+    color: #879298;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.resumen strong {
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.tarjeta-confirmacion .aviso {
+    margin: 25px 0 0;
+}
+
+.tarjeta-confirmacion .aviso.error {
+    color: #fca5a5;
+}
+
+.acciones-confirmacion {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.acciones-confirmacion .boton-secundario {
+    border-color: #465158;
+    color: var(--blanco);
+}
+
+.acciones-confirmacion .boton-secundario:hover {
+    color: var(--negro);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding-top: 70px;
+    background: #070b0e;
+    color: var(--blanco);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+.logo-texto span {
+    display: block;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.logo-texto small {
+    color: var(--violeta);
+    font-size: 11px;
+    letter-spacing: 6px;
+}
+
+.footer-grid p {
+    margin-top: 12px;
+    color: #899398;
+    font-size: 13px;
+}
+
+.footer-grid h3,
+.footer-grid h4 {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.footer-grid .boton-secundario {
+    margin-top: 18px;
+    color: var(--blanco);
+    border-color: #465158;
+}
+
+.footer-grid .boton-secundario:hover {
+    color: var(--negro);
+}
+
+.copy {
+    padding: 20px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #667177;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-contenido {
+    animation: aparecer 1s ease;
+}
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+@media (max-width: 1000px) {
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .introduccion .contenedor {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .detalle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detalle-grid img {
+        min-height: 240px;
+        max-height: 300px;
+    }
+
+    .resumen {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   RESPONSIVE - CELULAR
+========================= */
+@media (max-width: 700px) {
+    .contenedor {
+        width: min(92%, var(--ancho));
+    }
+
+    nav {
+        min-height: 70px;
+        gap: 12px;
+    }
+
+    .logo {
+        width: 56px;
+        height: 56px;
+    }
+
+    .menu-boton {
+        display: block;
+        margin-left: auto;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(11, 17, 21, 0.98);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .menu.abierto {
+        display: flex;
+    }
+
+    .menu a {
+        padding: 16px 5%;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .boton-nav {
+        padding: 10px 16px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 620px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+
+    .descripcion {
+        font-size: 17px;
+    }
+
+    .seccion,
+    .introduccion {
+        padding: 70px 0;
+    }
+
+    .paso {
+        grid-template-columns: 1fr;
+        padding: 30px 22px;
+    }
+
+    .formulario-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detalle-contenido {
+        padding: 35px 25px;
+    }
+
+    .detalle-contenido h2 {
+        font-size: 32px;
+    }
+
+    .detalle-contenido ul {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario-turno {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .horarios-disponibles {
+        grid-column: auto;
+    }
+
+    .tarjeta-confirmacion {
+        padding: 30px 22px;
+    }
+
+    .encabezado-confirmacion {
+        flex-direction: column;
+    }
+
+    .encabezado-confirmacion h2 {
+        font-size: 32px;
+    }
+
+    .resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .acciones-confirmacion {
+        flex-direction: column;
+    }
+
+    .acciones-confirmacion a,
+    .acciones-confirmacion button {
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   CELULARES MUY PEQUEÑOS
+========================= */
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .boton-nav {
+        display: none;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 35px;
+    }
+}
